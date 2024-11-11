@@ -1,83 +1,63 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    public Animator animator; // Reference to the animator
-    public Rigidbody2D rb; // Reference to the Rigidbody2D
-    public int maxHealth = 100; // Max health of the player
-    private int currentHealth; // Current health of the player
-
-    public float invincibilityTime = 1f; // Time during which player can't take damage after getting hurt
-
-    public int playerDamage = 20; // The amount of damage the player deals to enemies
+    public Animator animator;
+    public Rigidbody2D rb;
+    public int maxHealth = 100;
+    private int currentHealth;
+    public float invincibilityTime = 1f;
 
     private void Start()
     {
-        currentHealth = maxHealth; // Initialize health at the start
+        currentHealth = maxHealth;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Trap")) // If we collide with something tagged "Trap", take damage
+        if (collision.gameObject.CompareTag("Trap"))
         {
-            TakeDamage(20); // Call TakeDamage() with an amount of 20 damage (can be modified)
-        }
-        else if (collision.gameObject.CompareTag("Enemy")) // If we collide with an enemy, deal damage to the enemy
-        {
-            DealDamageToEnemy(collision.gameObject); // Call the method to deal damage to the enemy
+            TakeDamage(20);
         }
     }
 
-    private void TakeDamage(int damage) // Reduce health when taking damage
+    private void TakeDamage(int damage)
     {
-        if (currentHealth > 0) // If player has health left
+        if (currentHealth > 0)
         {
-            currentHealth -= damage; // Subtract damage from current health
-            animator.SetTrigger("Hurt"); // Trigger a hurt animation (optional)
+            currentHealth -= damage;
+            animator.SetTrigger("Hurt");
 
-            if (currentHealth <= 0) // If health reaches 0, trigger death
+            if (currentHealth <= 0)
             {
                 Die();
             }
             else
             {
-                StartCoroutine(Invincibility()); // Start invincibility period after taking damage
+                StartCoroutine(Invincibility());
             }
         }
     }
 
-    private IEnumerator Invincibility() // Make player invincible for a short period after taking damage
+    private IEnumerator Invincibility()
     {
-        rb.bodyType = RigidbodyType2D.Static; // Freeze player movement temporarily (optional)
-        yield return new WaitForSeconds(invincibilityTime); // Wait for the invincibility duration
-        rb.bodyType = RigidbodyType2D.Dynamic; // Resume player movement after invincibility ends
+        rb.bodyType = RigidbodyType2D.Static;
+        yield return new WaitForSeconds(invincibilityTime);
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    private void Die() // Handle player death
+    private void Die()
     {
-        animator.SetTrigger("Death"); // Play death animation
-        rb.bodyType = RigidbodyType2D.Static; // Stop player movement completely
-        StartCoroutine(RestartLevelAfterDelay(2f)); // Restart the level after 2 seconds
+        animator.SetTrigger("Death");
+        rb.bodyType = RigidbodyType2D.Static;
+        StartCoroutine(RestartLevelAfterDelay(2f));
     }
 
-    private IEnumerator RestartLevelAfterDelay(float delay) // Restart the level after a delay
+    private IEnumerator RestartLevelAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(0); // Reload the scene (assuming scene index 0)
-    }
-
-    // Method to deal damage to the enemy
-    private void DealDamageToEnemy(GameObject enemyObject)
-    {
-        // Get the Enemy script attached to the collided object (enemy)
-        Enemy enemy = enemyObject.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            // Apply the player's damage to the enemy
-            enemy.TakeDamage(playerDamage);
-        }
+        SceneManager.LoadScene(0);
     }
 }

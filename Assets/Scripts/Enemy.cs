@@ -1,41 +1,37 @@
 using System.Collections;
 using UnityEngine;
+using TMPro; // Add this to use TextMeshProUGUI
 
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
     public float chaseRadius = 10f;
-    public float attackRadius = 2f; // Range within which the player can damage the enemy
     public float obstacleCheckDistance = 1f;
     public LayerMask obstacleLayerMask;
     public Animator animator;
     private Transform target;
     private bool isChasing = false;
     public float moveSpeed = 5f;
-    public int damageAmount = 10; // Amount of damage dealt when M is pressed
 
-    void Start()
+    private int pointsCount = 0; // Use gemCount instead of Gem for clarity
+
+    [SerializeField] private TextMeshProUGUI gemText; // Make sure this is set to TextMeshProUGUI
+
+    private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        UpdateGemText(); // Initialize the text display
+    }
+
+    private void UpdateGemText()
+    {
+        gemText.text = "Points: " + pointsCount; // Update the UI text
     }
 
     private void Update()
     {
-        // Check if the player is close enough and presses M to deal damage
-        if (Vector3.Distance(target.position, transform.position) <= attackRadius && Input.GetKeyDown(KeyCode.M))
-        {
-            TakeDamage(damageAmount);
-        }
-
-        // Chasing logic
-        if (Vector3.Distance(target.position, transform.position) <= chaseRadius)
-        {
-            isChasing = true;
-        }
-        else
-        {
-            isChasing = false;
-        }
+        // Check if the player is within the chase radius
+        isChasing = Vector3.Distance(target.position, transform.position) <= chaseRadius;
 
         if (isChasing)
         {
@@ -51,11 +47,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Call this method to reduce the enemy's health
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("Enemy health: " + health); // Debug to show current health
+        Debug.Log("Enemy health: " + health);
 
         if (health <= 0)
         {
@@ -63,7 +58,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Die method to handle death behavior
     void Die()
     {
         StartCoroutine(Death());
@@ -73,9 +67,14 @@ public class Enemy : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.Play("Possum_Death"); // Play death animation
+            animator.Play("Possum_Death");
         }
         yield return new WaitForSeconds(0.5f); // Adjust duration to match the animation length
-        Destroy(gameObject); // Destroy enemy object
+        Debug.Log("Points collected!"); // Added missing semicolon
+        Destroy(gameObject);
+        pointsCount++;
+        UpdateGemText();
     }
 }
+
+

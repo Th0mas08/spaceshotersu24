@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 61204271297023222}
   - component: {fileID: 114989136756841320}
   - component: {fileID: 50715205994070856}
-  - component: {fileID: 3484520191873853582}
+  - component: {fileID: 7059589430477002757}
   m_Layer: 0
   m_Name: Player_Short_Lazer
   m_TagString: Player
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3484520191873853582
+--- !u!114 &7059589430477002757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,11 +155,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1413877261856170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 069ba4c6d740caa4ebfaece275777135, type: 3}
+  m_Script: {fileID: 11500000, guid: d16321ba5c39ba14286c5415352415da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  rb: {fileID: 0}
-  maxHealth: 100
-  invincibilityTime: 1
-  playerDamage: 20

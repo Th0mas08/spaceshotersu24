@@ -76,5 +76,3 @@ public class Enemy : MonoBehaviour
         UpdateGemText();
     }
 }
-
-

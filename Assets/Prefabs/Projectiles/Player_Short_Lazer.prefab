@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 212032766472002384}
   - component: {fileID: 61204271297023222}
   - component: {fileID: 114989136756841320}
-  - component: {fileID: 114514555278369220}
   - component: {fileID: 50715205994070856}
+  - component: {fileID: 3484520191873853582}
   m_Layer: 0
   m_Name: Player_Short_Lazer
-  m_TagString: Projectile
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,21 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &114514555278369220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413877261856170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002f4bcf8b0ec074f8485b31c91504b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  enemyBullet: 0
-  destroyedByCollision: 1
 --- !u!50 &50715205994070856
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +146,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3484520191873853582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413877261856170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ba4c6d740caa4ebfaece275777135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  maxHealth: 100
+  invincibilityTime: 1
+  playerDamage: 20

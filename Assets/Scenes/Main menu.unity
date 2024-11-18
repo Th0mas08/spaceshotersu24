@@ -236,6 +236,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2605081065610751163, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489105}
+    - target: {fileID: 2605081065610751163, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnStartButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605081066197523588, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489104}
+    - target: {fileID: 2605081066197523588, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuitButtonClicked
+      objectReference: {fileID: 0}
     - target: {fileID: 2605081066197523589, guid: 0baa1c150000ea8489f387b12d378310,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -262,6 +282,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0fe4ca6305a975749b02ce36514a34aa,
         type: 3}
+    - target: {fileID: 3751845439485782700, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489106}
+    - target: {fileID: 3751845439485782700, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751845439812780003, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489106}
+    - target: {fileID: 3751845439812780003, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SfxVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 3751845439818848526, guid: 0baa1c150000ea8489f387b12d378310,
         type: 3}
       propertyPath: m_text
@@ -271,6 +311,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSize
       value: 203
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751845440079460454, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489106}
+    - target: {fileID: 3751845440079460454, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetResolution
       objectReference: {fileID: 0}
     - target: {fileID: 3751845440678246232, guid: 0baa1c150000ea8489f387b12d378310,
         type: 3}
@@ -387,6 +437,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3751845441115924925, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489106}
+    - target: {fileID: 3751845441115924925, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751845441164495806, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489106}
+    - target: {fileID: 3751845441164495806, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751845441218703880, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751845441218703880, guid: 0baa1c150000ea8489f387b12d378310,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2065489106}
     - target: {fileID: 6998624670738389987, guid: 0baa1c150000ea8489f387b12d378310,
         type: 3}
       propertyPath: m_IsActive

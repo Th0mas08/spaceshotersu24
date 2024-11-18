@@ -20,7 +20,7 @@ public class shoot : MonoBehaviour
         // Instantiate the bullet and store the reference
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-        // Schedule the bullet to be destroyed after 10 seconds
-        Destroy(bullet, 2f);
+        // Schedule the bullet to be destroyed after 1 seconds
+        Destroy(bullet, 1f);
     }
 }

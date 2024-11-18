@@ -8,24 +8,15 @@ public class Enemy : MonoBehaviour
     public float chaseRadius = 10f;
     public float obstacleCheckDistance = 1f;
     public LayerMask obstacleLayerMask;
-    public Animator animator;
     private Transform target;
     private bool isChasing = false;
     public float moveSpeed = 5f;
-
-    private int pointsCount = 0; // Use gemCount instead of Gem for clarity
 
     [SerializeField] private TextMeshProUGUI gemText; // Make sure this is set to TextMeshProUGUI
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        UpdateGemText(); // Initialize the text display
-    }
-
-    private void UpdateGemText()
-    {
-        gemText.text = "Points: " + pointsCount; // Update the UI text
     }
 
     private void Update()
@@ -65,14 +56,15 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Death()
     {
-        if (animator != null)
-        {
-            animator.Play("Possum_Death");
-        }
-        yield return new WaitForSeconds(0.5f); // Adjust duration to match the animation length
-        Debug.Log("Points collected!"); // Added missing semicolon
+        // Here you can add a death animation, sound effect, or other actions if desired.
+        Debug.Log("Enemy defeated, adding points!");
+
+        // Add points to the GameManager when the enemy dies
+        GameManager.Instance.AddPoints(1);  // Adds 1 point for each defeated enemy
+
+        // Destroy the enemy object after a short delay (optional)
+        yield return new WaitForSeconds(0.5f); // Adjust duration as needed
+        
         Destroy(gameObject);
-        pointsCount++;
-        UpdateGemText();
     }
 }
